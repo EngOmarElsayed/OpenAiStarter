@@ -11,6 +11,10 @@
 		26FC42772B1F331E008FA8BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC42762B1F331E008FA8BD /* ContentView.swift */; };
 		26FC42792B1F331F008FA8BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26FC42782B1F331F008FA8BD /* Assets.xcassets */; };
 		26FC427C2B1F331F008FA8BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26FC427B2B1F331F008FA8BD /* Preview Assets.xcassets */; };
+		26FC42882B1F3398008FA8BD /* OpenAIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC42872B1F3398008FA8BD /* OpenAIViewModel.swift */; };
+		26FC428C2B1F33FA008FA8BD /* AiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC428B2B1F33FA008FA8BD /* AiResponse.swift */; };
+		26FC42902B1F35AA008FA8BD /* RequestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC428F2B1F35AA008FA8BD /* RequestDataModel.swift */; };
+		26FC42922B1F38C0008FA8BD /* APiManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC42912B1F38C0008FA8BD /* APiManger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		26FC42762B1F331E008FA8BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		26FC42782B1F331F008FA8BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26FC427B2B1F331F008FA8BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		26FC42872B1F3398008FA8BD /* OpenAIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIViewModel.swift; sourceTree = "<group>"; };
+		26FC428B2B1F33FA008FA8BD /* AiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AiResponse.swift; sourceTree = "<group>"; };
+		26FC428F2B1F35AA008FA8BD /* RequestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDataModel.swift; sourceTree = "<group>"; };
+		26FC42912B1F38C0008FA8BD /* APiManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APiManger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,9 @@
 			isa = PBXGroup;
 			children = (
 				26FC42742B1F331E008FA8BD /* OpenAIApp.swift */,
-				26FC42762B1F331E008FA8BD /* ContentView.swift */,
+				26FC42832B1F3333008FA8BD /* Model */,
+				26FC42842B1F333F008FA8BD /* ViewModel */,
+				26FC42822B1F3329008FA8BD /* Views */,
 				26FC42782B1F331F008FA8BD /* Assets.xcassets */,
 				26FC427A2B1F331F008FA8BD /* Preview Content */,
 			);
@@ -65,6 +75,40 @@
 				26FC427B2B1F331F008FA8BD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		26FC42822B1F3329008FA8BD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				26FC42762B1F331E008FA8BD /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		26FC42832B1F3333008FA8BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				26FC42912B1F38C0008FA8BD /* APiManger.swift */,
+				26FC42932B1F38C4008FA8BD /* DataModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		26FC42842B1F333F008FA8BD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				26FC42872B1F3398008FA8BD /* OpenAIViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		26FC42932B1F38C4008FA8BD /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				26FC428B2B1F33FA008FA8BD /* AiResponse.swift */,
+				26FC428F2B1F35AA008FA8BD /* RequestDataModel.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26FC42902B1F35AA008FA8BD /* RequestDataModel.swift in Sources */,
 				26FC42772B1F331E008FA8BD /* ContentView.swift in Sources */,
+				26FC42922B1F38C0008FA8BD /* APiManger.swift in Sources */,
+				26FC428C2B1F33FA008FA8BD /* AiResponse.swift in Sources */,
+				26FC42882B1F3398008FA8BD /* OpenAIViewModel.swift in Sources */,
 				26FC42752B1F331E008FA8BD /* OpenAIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

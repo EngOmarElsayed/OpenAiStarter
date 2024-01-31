@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct OpenAIApp: App {
+    @StateObject var viewModel = OpenAIViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(viewModel)
         }
     }
 }

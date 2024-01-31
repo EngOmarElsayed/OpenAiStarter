@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct RequestData {
+struct RequestData: Encodable {
     let model: String
-    let message: [UserMessage]
-    let temperature: Double = 0.2
+    let messages: [UserMessage]
 }
 
-struct UserMessage {
+struct UserMessage: Encodable {
     let role: String = "user"
-    var content: String
+    let content: String
 }
+

@@ -8,7 +8,7 @@
 import Foundation
 
 final class APiManger {
-    private let apiKey = "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" // your api key.
+    private let apiKey = "YOUROWNKEY" // your api key.
     private let url = "https://api.openai.com/v1/chat/completions" // api url
     private let urlSession = URLSession.shared
     static let shared = APiManger()

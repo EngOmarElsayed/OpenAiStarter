@@ -11,39 +11,67 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: OpenAIViewModel
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-                .padding()
-            VStack(alignment: .leading) {
-                TextField("Ask Anything to OpenAI", text: $viewModel.message)
-                    .fontDesign(.monospaced)
-                    .padding()
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(lineWidth: 0.5)
-                    }
-                    .onSubmit {
-                        Task {
-                            await viewModel.sendMessageToOpenAi()
+        ScrollView {
+            ScrollViewReader { proxy in
+                VStack {
+                    Image(systemName: "globe")
+                        .imageScale(.large)
+                        .foregroundStyle(.tint)
+                        .padding()
+                    VStack(alignment: .leading) {
+                        HStack {
+                            TextField("Ask Anything to OpenAI", text: $viewModel.message)
+                                .foregroundStyle(.aicolor)
+                                .fontDesign(.monospaced)
+                                .padding()
+                                .onSubmit {
+                                    Task {
+                                        await viewModel.sendMessageToOpenAi()
+                                    }
+                                }
+                            
+                            Button(action: {
+                                Task {
+                                    await viewModel.sendMessageToOpenAi()
+                                }
+                            }, label: {
+                                Image(systemName: "paperplane")
+                                    .foregroundStyle(.aicolor)
+                                    .padding()
+                            })
+                            
+                        }.overlay {
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(lineWidth: 0.5)
+                                .foregroundStyle(.aicolor)
                         }
+                        
+                        HStack(alignment: viewModel.isLoading ? .center: .firstTextBaseline){
+                            Group{
+                                Text("AI:")
+                                Text(viewModel.response)
+                                    .id("scroll")
+                                    .overlay {
+                                        if viewModel.isLoading {
+                                            LoadingAnimation()
+                                        }
+                                    }
+                            }
+                            .foregroundStyle(.aicolor)
+                            .font(.system(size: 17))
+                            .fontDesign(.monospaced)
+                            .padding()
+                            
+                        }
+                        
                     }
-                
-                HStack(alignment: .firstTextBaseline){
-                    Group{
-                        Text("AI:")
-                        Text(viewModel.response)
+                    Spacer()
+                }.padding()
+                    .onChange(of: viewModel.response) { _ in
+                        proxy.scrollTo("scroll", anchor: .bottom)
                     }
-                    .font(.system(size: 17))
-                    .fontDesign(.monospaced)
-                    .padding()
-                    
-                }
-                
             }
-            Spacer()
-        }.padding()
+        }
     }
 }
 
